@@ -30,6 +30,16 @@ int main(void) {
 
 	printf("v + a = ");
 	print_vector(&sum);
+
+	// subtracting two vectors
+	Vector diff = subtract_vectors(&v, &a);
+
+	printf("v - a = ");
+	print_vector(&diff);
+
+	// The dot product
+	float c = dot(&v, &a);
+	printf("v⋅a = %.2f\n", c);
 	
 	return 0;
 }

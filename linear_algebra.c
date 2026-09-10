@@ -48,6 +48,45 @@ Vector add_vectors(const Vector* a, const Vector* b) {
 	return out;
 }
 
+
+Vector subtract_vectors(const Vector* a, const Vector* b) {
+	if (a->size != b->size) {
+		fprintf(stderr, "Error: vectors should have the same size.");
+	}
+	
+	int size = a->size;
+	float* data;
+	Vector out = {data, .size=a->size};
+	create_vector(&out);
+
+	float* results = malloc(sizeof(float) * size);
+	if (results == NULL) {
+		fprintf(stderr, "Error allocating memory");
+		exit(EXIT_FAILURE);
+	}
+	
+	for (int i = 0; i < size; i++) {
+		results[i] = a->data[i] - b->data[i];
+	}
+
+	fill_vector(&out, results);
+	
+	return out;
+}
+
+float dot(const Vector* a, const Vector* b) {
+	if (a->size != b->size) {
+		fprintf(stderr, "Error: vectors should have the same size.");
+	}
+
+	float sum = 0;
+	for (int i = 0; i < a->size; i++) {
+		sum += a->data[0] * b->data[i];
+	}
+	
+	return sum;
+}
+
 void print_vector(Vector* v) {
 	printf("( ");
 	for (int i = 0; i < v->size-1; i++)
