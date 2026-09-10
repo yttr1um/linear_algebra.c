@@ -21,10 +21,10 @@ int main(void) {
 	Vector a = {.data = data_a, size};
 	create_vector(&a);
 	float values_2[3] = {2.8, 9.5, 3.14};
-	fill_vector(&v, values_2); 
+	fill_vector(&a, values_2); 
 
 	printf("a = ");
-	print_vector(&v);
+	print_vector(&a);
 
 	Vector sum = add_vectors(&v, &a);
 

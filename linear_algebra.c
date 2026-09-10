@@ -23,10 +23,16 @@ void fill_vector(Vector* v, float* values) {
 	}
 }
 
-Vector add_vectors(Vector* a, Vector* b) {
+Vector add_vectors(const Vector* a, const Vector* b) {
 	if (a->size != b->size) {
 		fprintf(stderr, "Error: vectors should have the same size.");
 	}
+	
+	// to test the contents of the input vectors.
+	for (int i = 0; i < a->size; i++) {
+		printf("%.2f ", b->data[i]);
+	}
+
 	
 	int size = a->size;
 	float* data;
@@ -41,8 +47,6 @@ Vector add_vectors(Vector* a, Vector* b) {
 	
 	for (int i = 0; i < size; i++) {
 		sums[i] = a->data[i] + b->data[i];
-		printf("(%.2f, %.2f)\n", a->data[i], b->data[i]);
-		printf("%.2f\n", a->data[i] + b->data[i]);
 	}
 
 	fill_vector(&out, sums);
