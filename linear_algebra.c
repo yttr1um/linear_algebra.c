@@ -28,12 +28,6 @@ Vector add_vectors(const Vector* a, const Vector* b) {
 		fprintf(stderr, "Error: vectors should have the same size.");
 	}
 	
-	// to test the contents of the input vectors.
-	for (int i = 0; i < a->size; i++) {
-		printf("%.2f ", b->data[i]);
-	}
-
-	
 	int size = a->size;
 	float* data;
 	Vector out = {data, .size=a->size};
