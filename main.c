@@ -41,5 +41,8 @@ int main(void) {
 	float c = dot(&v, &a);
 	printf("v⋅a = %.2f\n", c);
 	
+	fill_vector(&a, (float[]){3, 4, 5});
+	print_vector(&a);
+
 	return 0;
 }

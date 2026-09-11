@@ -8,6 +8,12 @@ typedef struct {
 	int    size;
 } Vector;
 
+typedef struct {
+	float* data;
+	int 	rows, cols;
+} Matrix;
+
+// Vector functions
 bool create_vector(Vector* v) {
 	v->data = malloc(sizeof(float) * v->size);
 	if (v == NULL) {
@@ -92,4 +98,20 @@ void print_vector(Vector* v) {
 	for (int i = 0; i < v->size-1; i++)
 		printf("%.2f, ", v->data[i]);
 	printf("%.2f )\n", v->data[v->size-1]);
+}
+
+// Matrix functions
+bool create_matrix(Matrix* m) {
+	int size = m->rows * m->cols;
+	m->data = malloc(size * sizeof(float));
+
+	if (m->data == NULL) {
+		fprintf(stderr, "Error: could not allocate memory.");
+		return false;
+	}
+	return true; // successfully created the matrix.
+}
+
+bool fill_matrix(Matrix* m, float** values) {
+	
 }
